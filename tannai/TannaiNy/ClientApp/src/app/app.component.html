@@ -1,0 +1,30 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-sm-3'>
+      <app-nav-menu></app-nav-menu>
+    </div>
+    <div class='col-sm-9 body-content'>
+      <router-outlet></router-outlet>
+      <app-ehdotus></app-ehdotus>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Auth0 - Angular</a>
+          <form class="form-inline">
+            <button class="btn btn-primary my-2 my-sm-0 mr-2" routerLink="/" type="button">
+              Home
+            </button>
+            <button id="qsLoginBtn" class="btn btn-primary my-2 my-sm-0" *ngIf="!auth.isAuthenticated()" (click)="auth.login()" type="button">
+              Log In
+            </button>
+            <button id="qsLogoutBtn" class="btn btn-primary my-2 my-sm-0" *ngIf="auth.isAuthenticated()" (click)="auth.logout()" type="button">
+              Log Out
+            </button>
+            <button class="btn btn-primary btn-margin" *ngIf="auth.isAuthenticated() && auth.userHasScopes(['write:messages'])" routerLink="/admin">
+              Admin Area
+            </button>
+          </form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

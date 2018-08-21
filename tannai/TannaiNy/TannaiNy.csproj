@@ -1,0 +1,187 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+
+    <!-- Set this to true if you enable server-side prerendering -->
+    <BuildServerSideRenderer>false</BuildServerSideRenderer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.0.0-preview2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\kommentti.ts" />
+    <None Remove="ClientApp\src\app\mock-kommentit.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ClientApp\node_modules\auth0-js\build\auth0.js" />
+    <None Include="ClientApp\node_modules\auth0-js\build\auth0.js" />
+    <None Include="ClientApp\node_modules\auth0-js\build\auth0.min.esm.js" />
+    <None Include="ClientApp\node_modules\auth0-js\build\auth0.min.esm.js" />
+    <None Include="ClientApp\node_modules\auth0-js\build\auth0.min.esm.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\build\auth0.min.esm.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\build\auth0.min.js" />
+    <None Include="ClientApp\node_modules\auth0-js\build\auth0.min.js" />
+    <None Include="ClientApp\node_modules\auth0-js\build\auth0.min.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\build\auth0.min.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\build\cordova-auth0-plugin.js" />
+    <None Include="ClientApp\node_modules\auth0-js\build\cordova-auth0-plugin.js" />
+    <None Include="ClientApp\node_modules\auth0-js\build\cordova-auth0-plugin.min.js" />
+    <None Include="ClientApp\node_modules\auth0-js\build\cordova-auth0-plugin.min.js" />
+    <None Include="ClientApp\node_modules\auth0-js\build\cordova-auth0-plugin.min.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\build\cordova-auth0-plugin.min.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\CHANGELOG.md" />
+    <None Include="ClientApp\node_modules\auth0-js\CHANGELOG.md" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\auth0.js" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\auth0.js" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\auth0.min.esm.js" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\auth0.min.esm.js" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\auth0.min.esm.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\auth0.min.esm.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\auth0.min.js" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\auth0.min.js" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\auth0.min.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\auth0.min.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\cordova-auth0-plugin.js" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\cordova-auth0-plugin.js" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\cordova-auth0-plugin.min.js" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\cordova-auth0-plugin.min.js" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\cordova-auth0-plugin.min.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\dist\cordova-auth0-plugin.min.js.map" />
+    <None Include="ClientApp\node_modules\auth0-js\LICENSE" />
+    <None Include="ClientApp\node_modules\auth0-js\LICENSE" />
+    <None Include="ClientApp\node_modules\auth0-js\package.json" />
+    <None Include="ClientApp\node_modules\auth0-js\plugins\cordova\index.js" />
+    <None Include="ClientApp\node_modules\auth0-js\plugins\cordova\index.js" />
+    <None Include="ClientApp\node_modules\auth0-js\plugins\cordova\plugin-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\plugins\cordova\plugin-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\plugins\cordova\popup-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\plugins\cordova\popup-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\README.md" />
+    <None Include="ClientApp\node_modules\auth0-js\README.md" />
+    <None Include="ClientApp\node_modules\auth0-js\src\authentication\db-connection.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\authentication\db-connection.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\authentication\index.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\authentication\index.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\authentication\passwordless-authentication.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\authentication\passwordless-authentication.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\assert.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\assert.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\base64_url.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\base64_url.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\error.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\error.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\iframe-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\iframe-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\object-assign.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\object-assign.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\object.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\object.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\parameters-whitelist.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\parameters-whitelist.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\plugins.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\plugins.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\popup-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\popup-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\random.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\random.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\request-builder.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\request-builder.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\response-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\response-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\ssodata.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\ssodata.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\storage.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\storage.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\storage\cookie.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\storage\cookie.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\storage\dummy.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\storage\dummy.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\storage\handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\storage\handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\times.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\times.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\url.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\url.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\warn.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\warn.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\window.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\helper\window.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\index.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\index.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\management\index.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\management\index.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\version.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\version.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\cross-origin-authentication.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\cross-origin-authentication.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\hosted-pages.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\hosted-pages.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\index.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\index.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\popup.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\popup.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\redirect.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\redirect.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\silent-authentication-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\silent-authentication-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\transaction-manager.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\transaction-manager.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\username-password.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\username-password.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\web-message-handler.js" />
+    <None Include="ClientApp\node_modules\auth0-js\src\web-auth\web-message-handler.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\kommentti.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\mock-kommentit.ts" />
+  </ItemGroup>
+
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>
