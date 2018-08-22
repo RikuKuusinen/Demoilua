@@ -26,6 +26,8 @@ import { Routes } from '@angular/router';
 
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 import { ScopeGuardService as ScopeGuard } from './auth/scope-guard.service';
+import { MapComponent } from './map/map.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -41,7 +43,8 @@ import { ScopeGuardService as ScopeGuard } from './auth/scope-guard.service';
     LisaaKommenttiComponent,
     CallbackComponent,
     ProfileComponent,
-    PingComponent
+    PingComponent,
+    MapComponent
 
   ],
   imports: [
@@ -49,6 +52,9 @@ import { ScopeGuardService as ScopeGuard } from './auth/scope-guard.service';
     HttpClientModule,
     FormsModule,
     HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'kikkeli'
+    }),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

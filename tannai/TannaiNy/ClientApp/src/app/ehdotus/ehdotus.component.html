@@ -1,8 +1,27 @@
-<p>
-  ehdotus works!
+<h2>Ehdotukset</h2>
 
-  Ehdotappa täällä vitun hienoja juttuja, mitä haluaisit tänne
 
- 
-</p>
-<button>Tästä vaan ehdottelemaan</button>
+<ul class="heroes">
+  <li *ngFor="let kommentti of kommentit" (click)="onSelect(kommentti)">
+
+    <span class="badge">{{kommentti.id}}</span> {{kommentti.name}} {{kommentti.comment}}
+  </li>
+</ul>
+
+
+<div *ngIf="selectedKommentti">
+  <h2> Lisätietoja ehdotuksesta</h2>
+  <div><span>Nimimerkki: </span>{{selectedKommentti.name}}</div>
+  <div>
+    <span>
+      Ehdotus:
+    </span>
+      {{selectedKommentti.comment }} <br />
+    Sijainti: Keilaranta 5
+  </div>
+
+ Tarkempi kuvaus: Kikkelis kokkelis lorem ipsum kakkeli vitusti tekstiä<br/>
+  <button>Kommenttoi tätä paskaa ehdotusta</button>
+  <br/>
+  Tämä on ihan paras ehdotus eli annan tälle peukkua painamalla tästä <button>Peukalon kuva</button>
+</div>
