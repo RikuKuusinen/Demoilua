@@ -1,13 +1,29 @@
-<p>
-    Kommentti toimii
-</p>
-
-<!--<form class="example-form">
-
-    <mat-form-field class="example-full-width">
-        <input matInput #message maxlength="256" placeholder="Message">
-        <mat-hint align="left"><strong>Don't disclose personal info</strong> </mat-hint>
-        <mat-hint align="right">{{message.value.length}} / 256</mat-hint>
-    </mat-form-field>
-
-</form>-->
+<form>
+  <div class="form-group">
+    <label for="nickName">Nickname</label>
+    <input required
+           minlength="3"
+           maxlength="10"
+           ngModel
+           name="nickName"
+           #nickName="ngModel"
+           (change)="log(nickName)"
+           id="nickName"
+           type="text"
+           class="form-control">
+    <div class="alert alert-danger"
+         *ngIf="nickName.touched && !nickName.valid">
+      <div *ngIf="nickName.errors.required">
+        First name is required.
+      </div>
+      <div *ngIf="nickName.errors.minlength">
+        First name should be minimum of {{nickName.errors.minlength.requiredLength}} characters.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for='comment'>Comment</label>
+    <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
+  </div>
+  <button class="btn btn-primary">Submit</button>
+</form>

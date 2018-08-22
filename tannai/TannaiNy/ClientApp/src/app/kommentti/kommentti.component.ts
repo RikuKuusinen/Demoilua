@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./kommentti.component.css']
 })
 export class KommenttiComponent implements OnInit {
+  log(x) { console.log(x); }
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
