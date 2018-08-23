@@ -1,0 +1,13 @@
+<div id="search-component">
+  <h4>EHdotusten ettiminen</h4>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let ehdotus of kommentit$ | async">
+      <a routerLink="/detail/{{ehdotus.id}}">
+        {{ehdotus.name}}
+      </a>
+    </li>
+  </ul>
+</div>

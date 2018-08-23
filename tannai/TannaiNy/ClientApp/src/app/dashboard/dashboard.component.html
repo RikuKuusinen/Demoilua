@@ -1,8 +1,12 @@
 <h3>Top Ehdotukset</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let kommentti of kommentit" class="col-1-4">
+  <a *ngFor="let kommentti of kommentit" class="col-1-4"
+     routerLink="/detail/{{kommentti.id}}">
+   
     <div class="module hero">
       <h4>{{kommentti.name}}</h4>
     </div>
   </a>
 </div>
+
+<app-ehdotus-search></app-ehdotus-search>
