@@ -1,10 +1,16 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { KOMMENTIT } from '../mock-kommentit';
 import { Kommentti } from '../kommentti';
+
+import { KommentitService} from '../kommentti.service'
+import { AuthService } from '../auth/auth.service';
+
+=======
 /**
  * <like [totalLikes]="post.totalLikes" [iLike]="post.iLike" (change)="oniLikeChange($event)"></like>
  */
 //jos tälle tehdään oma komponentti niin selectoriksi tulee 'like' ja ylläolevalla koodinpätkällä saadaan total tykkäykset laskettua.
+
 
 @Component({
   selector: 'app-ehdotus',
@@ -12,7 +18,12 @@ import { Kommentti } from '../kommentti';
   styleUrls: ['./ehdotus.component.css']
 })
 export class EhdotusComponent implements OnInit {
+  kommentit: Kommentti[];
+  profile: any;
 
+
+  constructor(private kommentitService: KommentitService, private auth : AuthService) { }
+=======
  @Input() totalLikes = 0;
   @Input() iLike = false;
 
@@ -25,17 +36,30 @@ export class EhdotusComponent implements OnInit {
   }
   // tässä tykkäysnapin counteri
 
-  kommentit = KOMMENTIT;
-
-  selectedKommentti: Kommentti;
-
-  onSelect(kommentti: Kommentti): void {
-    this.selectedKommentti = kommentti;
-  }
-
-  constructor() { }
 
   ngOnInit() {
+    this.getKommentit();
   }
+
+  getKommentit(): void {
+    this.kommentitService.getKommentit()
+      .subscribe(kommentit => this.kommentit = kommentit);
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.kommentitService.addKommentti({ name } as Kommentti)
+      .subscribe(kommentti => {
+        this.kommentit.push(kommentti);
+      });
+  }
+
+  delete(kommentti: Kommentti): void {
+    this.kommentit = this.kommentit.filter(h => h !== kommentti);
+    this.kommentitService.deleteKommentti(kommentti).subscribe();
+  }
+
+
 
 }

@@ -32,6 +32,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { KommenttiDetailComponent } from './kommentti-detail/kommentti-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { EhdotusSearchComponent } from './ehdotus-search/ehdotus-search.component';
+
 
 
 
@@ -53,14 +57,18 @@ import { AppRoutingModule } from './/app-routing.module';
     DashboardComponent,
     KommenttiDetailComponent,
     MessagesComponent,
+    EhdotusSearchComponent,
 
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
     AgmCoreModule.forRoot({
       apiKey: 'kikkeli'
     }),

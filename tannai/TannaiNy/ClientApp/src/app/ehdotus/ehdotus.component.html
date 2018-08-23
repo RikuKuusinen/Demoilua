@@ -1,15 +1,46 @@
-<h2>Ehdotukset</h2>
+<!--<h2>Ehdotukset</h2>
 
 
 <ul class="heroes">
   <li *ngFor="let kommentti of kommentit" (click)="onSelect(kommentti)">
+    <a routerLink="/detail/{{kommentti.id}}">
+      <span class="badge">{{kommentti.id}}</span> {{kommentti.name}} {{kommentti.comment}}
+    </a>
+      <button class="delete" title="delete hero"
+              (click)="delete(hero)">
+        x
+      </button>
+</li>
+</ul>-->
 
-    <span class="badge">{{kommentti.id}}</span> {{kommentti.name}} {{kommentti.comment}}
+
+<h2>Kaikko kommentit</h2>
+
+<div>
+  <label>
+    Kommentin name:
+    <input #kommenttiNimi />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(kommenttiNimi.value); kommenttiNimi.value=''">
+
+    add
+  </button>
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let kommentti of kommentit">
+    <a routerLink="/detail/{{kommentti.id}}">
+      <span class="badge">{{kommentti.id}}</span> {{kommentti.name}}
+    </a>
+    <button class="delete" title="delete kommentti"
+            (click)="delete(kommentti)">
+      x
+    </button>
   </li>
 </ul>
 
-
-<div *ngIf="selectedKommentti">
+<!--<div *ngIf="selectedKommentti">
   <h2> Lisätietoja ehdotuksesta</h2>
   <div><span>Nimimerkki: </span>{{selectedKommentti.name}}</div>
   <div>
@@ -22,6 +53,7 @@
 
   Tarkempi kuvaus: Kikkelis kokkelis lorem ipsum kakkeli vitusti tekstiä<br />
   <button>Kommenttoi tätä paskaa ehdotusta</button>
+
   <br />
   Tämä on ihan paras ehdotus eli annan tälle peukkua painamalla tästä
   <button class="glyphicon glyphicon-heart"
@@ -31,3 +63,4 @@
   </button>
   <!--tykkäysnappi sijaitsee tässä-->
 </div>
+

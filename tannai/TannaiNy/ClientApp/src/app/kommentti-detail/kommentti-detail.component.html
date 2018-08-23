@@ -1,11 +1,11 @@
-<div *ngIf="selectedKommentti">
+<div *ngIf="kommentti">
   <h2> Lisätietoja ehdotuksesta</h2>
-  <div><span>Nimimerkki: </span>{{selectedKommentti.name}}</div>
+  <div><span>Nimimerkki: </span>{{kommentti.name}}</div>
   <div>
     <span>
       Ehdotus:
     </span>
-    {{selectedKommentti.comment }} <br />
+    {{kommentti.comment }} <br />
     Sijainti: Keilaranta 5
   </div>
 
@@ -13,4 +13,7 @@
   <button>Kommenttoi tätä paskaa ehdotusta</button>
   <br />
   Tämä on ihan paras ehdotus eli annan tälle peukkua painamalla tästä <button>Peukalon kuva</button>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
 </div>
