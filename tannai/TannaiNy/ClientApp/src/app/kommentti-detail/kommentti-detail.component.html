@@ -1,0 +1,16 @@
+<div *ngIf="selectedKommentti">
+  <h2> Lisätietoja ehdotuksesta</h2>
+  <div><span>Nimimerkki: </span>{{selectedKommentti.name}}</div>
+  <div>
+    <span>
+      Ehdotus:
+    </span>
+    {{selectedKommentti.comment }} <br />
+    Sijainti: Keilaranta 5
+  </div>
+
+  Tarkempi kuvaus: Kikkelis kokkelis lorem ipsum kakkeli vitusti tekstiä<br />
+  <button>Kommenttoi tätä paskaa ehdotusta</button>
+  <br />
+  Tämä on ihan paras ehdotus eli annan tälle peukkua painamalla tästä <button>Peukalon kuva</button>
+</div>

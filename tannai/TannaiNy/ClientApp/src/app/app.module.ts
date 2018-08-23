@@ -28,6 +28,11 @@ import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 import { ScopeGuardService as ScopeGuard } from './auth/scope-guard.service';
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { KommenttiDetailComponent } from './kommentti-detail/kommentti-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './/app-routing.module';
+
 
 
 
@@ -44,7 +49,10 @@ import { AgmCoreModule } from '@agm/core';
     CallbackComponent,
     ProfileComponent,
     PingComponent,
-    MapComponent
+    MapComponent,
+    DashboardComponent,
+    KommenttiDetailComponent,
+    MessagesComponent,
 
   ],
   imports: [
@@ -52,19 +60,20 @@ import { AgmCoreModule } from '@agm/core';
     HttpClientModule,
     FormsModule,
     HttpModule,
+    AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'kikkeli'
     }),
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'callback', component: CallbackComponent },
-      { path: '**', redirectTo: '' },
-      { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-      { path: 'ping', component: PingComponent, canActivate: [AuthGuard] },
-  // { path: 'admin', component: AdminComponent, canActivate: [ScopeGuard], data: { expectedScopes: ['write:messages'] } },
-    ])
+  //  RouterModule.forRoot([
+  //    { path: '', component: HomeComponent, pathMatch: 'full' },
+  //    { path: 'counter', component: CounterComponent },
+  //    { path: 'fetch-data', component: FetchDataComponent },
+  //    { path: 'callback', component: CallbackComponent },
+  //    { path: '**', redirectTo: '' },
+  //    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  //    { path: 'ping', component: PingComponent, canActivate: [AuthGuard] },
+  //// { path: 'admin', component: AdminComponent, canActivate: [ScopeGuard], data: { expectedScopes: ['write:messages'] } },
+  //  ])
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
