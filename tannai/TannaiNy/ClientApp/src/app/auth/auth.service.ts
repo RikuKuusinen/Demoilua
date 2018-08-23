@@ -18,7 +18,7 @@ export class AuthService {
     domain: 'tannainy.eu.auth0.com',
     responseType: 'token id_token',
     audience: 'https://tannainy.eu.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4295/callback',
+    redirectUri: 'http://localhost:4295',
     scope: this.requestedScopes
   });
 
@@ -33,9 +33,9 @@ export class AuthService {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
       } else if (err) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
       }

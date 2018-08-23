@@ -22,7 +22,7 @@
     <input #kommenttiNimi />
   </label>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(kommenttiNimi.value); kommenttiNimi.value=''">
+  <button (click)="add(kommenttiNimi.value, 'kikkeli' ); kommenttiNimi.value=''">
 
     add
   </button>
@@ -31,7 +31,7 @@
 <ul class="heroes">
   <li *ngFor="let kommentti of kommentit">
     <a routerLink="/detail/{{kommentti.id}}">
-      <span class="badge">{{kommentti.id}}</span> {{kommentti.name}}
+      <span class="badge">{{kommentti.id}}</span> {{kommentti.name}} {{kommentti.profiili}}
     </a>
     <button class="delete" title="delete kommentti"
             (click)="delete(kommentti)">
@@ -62,5 +62,5 @@
     Tykkään
   </button>
   <!--tykkäysnappi sijaitsee tässä-->
-</div>
+
 
