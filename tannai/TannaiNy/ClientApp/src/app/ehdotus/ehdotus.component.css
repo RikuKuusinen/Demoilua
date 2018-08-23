@@ -1,0 +1,34 @@
+h2 {
+  background-color: lightgray;
+}
+
+.heroes {
+  position: relative;
+  cursor: pointer;
+  background-color: #EEE;
+}
+
+  .heroes li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+  }
+
+
+
+  .heroes a:hover {
+    color: #607D8B;
+  }
+
+/*heroes listan tyylit*/
+
+.glyphicon-heart {
+  color: #000000;
+  cursor: pointer;
+}
+
+.highlighted {
+  color: deeppink;
+}
+
+/*tykkäysnapin tyylit*/

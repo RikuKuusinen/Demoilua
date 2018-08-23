@@ -16,12 +16,18 @@
     <span>
       Ehdotus:
     </span>
-      {{selectedKommentti.comment }} <br />
+    {{selectedKommentti.comment }} <br />
     Sijainti: Keilaranta 5
   </div>
 
- Tarkempi kuvaus: Kikkelis kokkelis lorem ipsum kakkeli vitusti tekstiä<br/>
+  Tarkempi kuvaus: Kikkelis kokkelis lorem ipsum kakkeli vitusti tekstiä<br />
   <button>Kommenttoi tätä paskaa ehdotusta</button>
-  <br/>
-  Tämä on ihan paras ehdotus eli annan tälle peukkua painamalla tästä <button>Peukalon kuva</button>
+  <br />
+  Tämä on ihan paras ehdotus eli annan tälle peukkua painamalla tästä
+  <button class="glyphicon glyphicon-heart"
+          [class.highlighted]="iLike"
+          (click)="onClick()">
+    Tykkään
+  </button>
+  <!--tykkäysnappi sijaitsee tässä-->
 </div>

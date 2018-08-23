@@ -10,5 +10,6 @@ export const KOMMENTIT: Kommentti[] = [
 { id: 17, name: 'Dynama', comment: 'Tänne hai-hieronta' },
 { id: 18, name: 'Dr IQ', comment: 'Tänne hai-hieronta'  },
 { id: 19, name: 'Magma', comment: 'Tänne hai-hieronta' },
-{ id: 20, name: 'Tornado', comment: 'Tänne hai-hieronta'  }
+  { id: 20, name: 'Tornado', comment: 'Tänne hai-hieronta' },
+  { id: 21, name: 'Uneton88', comment: 'Tänne We Got Beef' }
 ];
