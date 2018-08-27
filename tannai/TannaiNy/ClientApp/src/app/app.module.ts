@@ -66,9 +66,9 @@ import { EhdotusSearchComponent } from './ehdotus-search/ehdotus-search.componen
     HttpModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
+    //HttpClientInMemoryWebApiModule.forRoot(
+    //  InMemoryDataService, { dataEncapsulation: false }
+    //),
     AgmCoreModule.forRoot({
       apiKey: 'kikkeli'
     }),

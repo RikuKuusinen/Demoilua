@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { KOMMENTIT } from '../mock-kommentit';
 import { Kommentti } from '../kommentti';
 
 import { KommentitService} from '../kommentti.service'
@@ -59,7 +58,7 @@ export class EhdotusComponent implements OnInit {
   add(name: string, profiili: any ): void {
     name = name.trim();
     if (!name) { return; }
-    this.kommentitService.addKommentti({ name, profiili: this.auth.userProfile } as Kommentti)
+    this.kommentitService.addKommentti({ name, profiili: this.profiili } as Kommentti)
       .subscribe(kommentti => {
         this.kommentit.push(kommentti);
       });

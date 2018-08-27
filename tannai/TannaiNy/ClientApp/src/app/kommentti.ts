@@ -1,5 +1,5 @@
 export class Kommentti {
-  id: number;
+  id: string;
   name: string;
   comment: string;
   profiili: any;

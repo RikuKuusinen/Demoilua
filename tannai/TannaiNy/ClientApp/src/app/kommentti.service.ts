@@ -8,7 +8,7 @@ import { Kommentti } from './kommentti';
 import { MessageService } from './message.service';
 
 
-import { KOMMENTIT } from './mock-kommentit';
+// import { KOMMENTIT } from './mock-kommentit';
 
 
 const httpOptions = {
@@ -23,21 +23,23 @@ const httpOptions = {
 
 export class KommentitService {
 
-  private kommentitUrl = 'api/kommentit';  // URL to web api
+  //private kommentitUrl = 'api/kommentit';  // URL to web api
+  private kommentitUrl = 'http://tannainyapi.azurewebsites.net/api/comment'
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
   getKommentit(): Observable<Kommentti[]> {
  
-    
-    return this.http.get<Kommentti[]>(this.kommentitUrl).pipe(
+    console.log("toimii")
+
+    return this.http.get<Kommentti[]>(this.kommentitUrl + '/getallcomments').pipe(
       tap(kommentit => this.log('fetched kommentit')),
       catchError(this.handleError('getKommentit', []))
     );
   }
 
-  getKommentti(id: number): Observable<Kommentti> {
+  getKommentti(id: string): Observable<Kommentti> {
     const url = `${this.kommentitUrl}/${id}`;
     return this.http.get<Kommentti>(url).pipe(
       tap(_ => this.log(`fetched kommentti id=${id}`)),
@@ -60,8 +62,9 @@ export class KommentitService {
 
   /** POST: add a new hero to the server */
   addKommentti(kommentti: Kommentti): Observable<Kommentti> {
-    return this.http.post<Kommentti>(this.kommentitUrl, kommentti, httpOptions).pipe(
-      tap((kommentti: Kommentti) => this.log(`added kommentti w/ id=${kommentti.id}`)),
+    console.log(JSON.stringify(kommentti));
+    return this.http.post<Kommentti>(this.kommentitUrl + '/post', JSON.stringify(kommentti), httpOptions).pipe(
+      tap((kommentti: Kommentti) => this.log(`added kommentti w/ id`)),
       catchError(this.handleError<Kommentti>('addKommentti'))
     );
   }
