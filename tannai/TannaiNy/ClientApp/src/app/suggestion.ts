@@ -6,4 +6,5 @@ export class Suggestion {
   latitude: number;
   profiili: any;
   likes: number;
+  draggable: boolean;
 }

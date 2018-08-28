@@ -18,6 +18,8 @@ import { AgmCoreModule } from '@agm/core';
 import { MessagesComponent } from './messages/messages.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { SuggestionAddComponent } from './suggestion-add/suggestion-add.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: 'counter', component: CounterComponent },
   { path: 'fetch-data', component: FetchDataComponent },
   { path: 'callback', component: CallbackComponent },
+  { path: 'lisaa-ehdotus', component: SuggestionAddComponent },
   { path: '**', redirectTo: '' },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'ping', component: PingComponent, canActivate: [AuthGuard] },

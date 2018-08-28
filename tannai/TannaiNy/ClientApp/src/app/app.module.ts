@@ -35,6 +35,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { EhdotusSearchComponent } from './ehdotus-search/ehdotus-search.component';
+import { SuggestionAddComponent } from './suggestion-add/suggestion-add.component';
 
 
 
@@ -58,6 +59,7 @@ import { EhdotusSearchComponent } from './ehdotus-search/ehdotus-search.componen
     KommenttiDetailComponent,
     MessagesComponent,
     EhdotusSearchComponent,
+    SuggestionAddComponent,
 
   ],
   imports: [

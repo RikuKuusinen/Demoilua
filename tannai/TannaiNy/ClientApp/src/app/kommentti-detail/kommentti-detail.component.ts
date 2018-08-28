@@ -13,7 +13,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 })
 export class KommenttiDetailComponent implements OnInit {
-  @Input() kommentti: Kommentti;
+  @Input() kommentti: Kommentti[];
   constructor(
     private route: ActivatedRoute,
     private kommentitService: KommentitService,
@@ -27,11 +27,11 @@ export class KommenttiDetailComponent implements OnInit {
   }
 
   getKommentti(): void {
-  let id = this.route.snapshot.paramMap.get('content');
+  let id = this.route.snapshot.paramMap.get('id');
 
     this.kommentitService.getKommentti(id)
-      .subscribe(kommentti => this.kommentti = kommentti);
-    console.log(this.kommentti)
+      .subscribe(kommentti => this.kommentti = kommentti[0]);
+    console.log(this.kommentti[0])
   }
 
   goBack(): void {

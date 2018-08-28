@@ -38,6 +38,19 @@ export class KommentitService {
       catchError(this.handleError('getKommentit', []))
     );
   }
+  /** GET kommentti by id. Return `undefined` when id not found */
+  getKommenttiNo404<Data>(id: string): Observable<Kommentti> {
+    const url = `${this.kommentitUrl}/?id="${id}"`;
+    return this.http.get<Kommentti[]>(url)
+      .pipe(
+        map(kommentit => kommentit[0]), // returns a {0|1} element array
+        tap(h => {
+          const outcome = h ? `fetched` : `did not find`;
+          this.log(`${outcome} kommentti id=${id}`);
+        }),
+        catchError(this.handleError<Kommentti>(`getHero id=${id}`))
+      );
+  }
 
   getKommentti(id: string): Observable<Kommentti> {
     const url = `${this.kommentitUrl}/getbycommentid?id="${id}"`;
