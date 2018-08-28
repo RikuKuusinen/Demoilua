@@ -31,7 +31,7 @@
 <ul class="heroes">
   <li *ngFor="let kommentti of kommentit">
     <a routerLink="/detail/{{kommentti.id}}">
-      <span class="badge">{{kommentti.id}}</span> {{kommentti.name}} {{kommentti.profiili}}
+      <span class="badge">{{kommentti.comment}}</span> {{kommentti.name}} {{kommentti.profiili}}
     </a>
     <button class="delete" title="delete kommentti"
             (click)="delete(kommentti)">

@@ -1,15 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Kommentti } from '../kommentti'
 
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { KommentitService } from '../kommentti.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-kommentti-detail',
   templateUrl: './kommentti-detail.component.html',
   styleUrls: ['./kommentti-detail.component.css']
+
 })
 export class KommenttiDetailComponent implements OnInit {
   @Input() kommentti: Kommentti;
@@ -19,14 +20,18 @@ export class KommenttiDetailComponent implements OnInit {
     private location: Location
   ) { }
 
+
+
   ngOnInit(): void {
     this.getKommentti();
   }
 
   getKommentti(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+  let id = this.route.snapshot.paramMap.get('content');
+
     this.kommentitService.getKommentti(id)
       .subscribe(kommentti => this.kommentti = kommentti);
+    console.log(this.kommentti)
   }
 
   goBack(): void {

@@ -40,7 +40,7 @@ export class KommentitService {
   }
 
   getKommentti(id: string): Observable<Kommentti> {
-    const url = `${this.kommentitUrl}/getbycommentid?=%22${id}%22`;
+    const url = `${this.kommentitUrl}/getbycommentid?id="${id}"`;
 
     return this.http.get<Kommentti>(url).pipe(
       tap(_ => this.log(`fetched kommentti id=${id}`)),
@@ -61,7 +61,7 @@ export class KommentitService {
 
   //////// Save methods //////////
 
-  /** POST: add a new  to the server */
+  /** POST: add a new comment to the server */
   addKommentti(kommentti: Kommentti): Observable<Kommentti> {
     console.log(JSON.stringify(kommentti));
     return this.http.post<Kommentti>(this.kommentitUrl + '/post', kommentti, httpOptions).pipe(
@@ -70,7 +70,7 @@ export class KommentitService {
     );
   }
 
-  /** DELETE: delete the hero from the server */
+  /** DELETE: delete the comment from the server */
   deleteKommentti(kommentti: Kommentti | number): Observable<Kommentti> {
     const id = typeof kommentti === 'number' ? kommentti : kommentti.id;
     const url = `${this.kommentitUrl}/${id}`;
@@ -81,7 +81,7 @@ export class KommentitService {
     );
   }
 
-  /** PUT: update the hero on the server */
+  /** PUT: update the comment on the server */
   updateKommentti(kommentti: Kommentti): Observable<any> {
     return this.http.put(this.kommentitUrl, kommentti, httpOptions).pipe(
       tap(_ => this.log(`updated kommentti id=${kommentti.id}`)),

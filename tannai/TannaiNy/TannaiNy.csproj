@@ -31,12 +31,14 @@
     <None Remove="ClientApp\src\app\in-memory-data.service.ts" />
     <None Remove="ClientApp\src\app\kommentti.ts" />
     <None Remove="ClientApp\src\app\mock-kommentit.ts" />
+    <None Remove="ClientApp\src\app\suggestion.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\in-memory-data.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\kommentti.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\mock-kommentit.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\suggestion.ts" />
   </ItemGroup>
 
   <ItemGroup>

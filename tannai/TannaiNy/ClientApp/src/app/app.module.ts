@@ -70,7 +70,7 @@ import { EhdotusSearchComponent } from './ehdotus-search/ehdotus-search.componen
     //  InMemoryDataService, { dataEncapsulation: false }
     //),
     AgmCoreModule.forRoot({
-      apiKey: 'kikkeli'
+      apiKey: 'AIzaSyDiiUeDvQBtpL4JdU6OYWCwmxwK0PTbu_Y'
     }),
   //  RouterModule.forRoot([
   //    { path: '', component: HomeComponent, pathMatch: 'full' },

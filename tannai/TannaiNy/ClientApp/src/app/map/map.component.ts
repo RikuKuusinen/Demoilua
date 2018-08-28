@@ -32,24 +32,26 @@ export class MapComponent {
   }
 
   markers: marker[] = [
+
+  //// Marker array comes from db and displays automatically in map
     {
       lat: 60.159081131728556,
       lng: 24.722763515543306,
       label: 'Tänne thai-hieronta',
       draggable: false
     },
-    {
-      lat: 51.373858,
-      lng: 7.215982,
-      label: 'B',
-      draggable: false
-    },
-    {
-      lat: 51.723858,
-      lng: 7.895982,
-      label: 'C',
-      draggable: true
-    }
+    //{
+    //  lat: 51.373858,
+    //  lng: 7.215982,
+    //  label: 'B',
+    //  draggable: false
+    //},
+    //{
+    //  lat: 51.723858,
+    //  lng: 7.895982,
+    //  label: 'C',
+    //  draggable: true
+    //}
   ]
 }
 

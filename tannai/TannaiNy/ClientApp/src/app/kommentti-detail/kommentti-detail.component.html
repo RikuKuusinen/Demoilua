@@ -1,11 +1,11 @@
 <div *ngIf="kommentti">
   <h2> Lisätietoja ehdotuksesta</h2>
-  <div><span>Nimimerkki: </span>{{kommentti.name}}</div>
+  <div><span>Nimimerkki: </span>{{kommentti.comment}}</div>
   <div>
     <span>
       Ehdotus:
     </span>
-    {{kommentti.comment }} <br />
+    {{kommentti.id }} <br />
     <!--{{kommentti.profiili.nickname | json }}-->
     Sijainti: Keilaranta 5
   </div>

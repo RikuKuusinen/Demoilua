@@ -9,12 +9,13 @@
               (markerClick)="clickedMarker(m.label, i)"
               [latitude]="m.lat"
               [longitude]="m.lng"
-              [label]="m.label"
+              
               [markerDraggable]="m.draggable"
               (dragEnd)="markerDragEnd(m, $event)">
 
-    <agm-info-window>
-      <strong>Thai-hieronta ehdotus </strong>
+    <agm-info-window [isOpen]="true" [disableAutoPan]="false" #infoWindow>
+
+      <a href="/ehdotukset"> <strong> Lisää ehdotus </strong> </a>
     </agm-info-window>
 
   </agm-marker>

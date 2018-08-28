@@ -18,6 +18,6 @@ export class DashboardComponent implements OnInit {
 
   getKommentit(): void {
     this.kommenttiService.getKommentit()
-      .subscribe(kommentit => this.kommentit = kommentit.slice(1, 5));
+      .subscribe(kommentit => this.kommentit = kommentit.slice(5, 9));
   }
 }
