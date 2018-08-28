@@ -24,7 +24,7 @@ export class KommenttiDetailComponent implements OnInit {
   }
 
   getKommentti(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.kommentitService.getKommentti(id)
       .subscribe(kommentti => this.kommentti = kommentti);
   }

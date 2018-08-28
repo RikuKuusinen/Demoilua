@@ -40,7 +40,8 @@ export class KommentitService {
   }
 
   getKommentti(id: string): Observable<Kommentti> {
-    const url = `${this.kommentitUrl}/${id}`;
+    const url = `${this.kommentitUrl}/getbycommentid?=%22${id}%22`;
+
     return this.http.get<Kommentti>(url).pipe(
       tap(_ => this.log(`fetched kommentti id=${id}`)),
       catchError(this.handleError<Kommentti>(`getKommentti id=${id}`))
@@ -48,7 +49,7 @@ export class KommentitService {
   }
   searchEhdotus(term: string): Observable<Kommentti[]> {
     if (!term.trim()) {
-      // if not search term, return empty hero array.
+      // if not search term, return empty  array.
       return of([]);
     }
     return this.http.get<Kommentti[]>(`${this.kommentitUrl}/?name=${term}`).pipe(
@@ -60,10 +61,10 @@ export class KommentitService {
 
   //////// Save methods //////////
 
-  /** POST: add a new hero to the server */
+  /** POST: add a new  to the server */
   addKommentti(kommentti: Kommentti): Observable<Kommentti> {
     console.log(JSON.stringify(kommentti));
-    return this.http.post<Kommentti>(this.kommentitUrl + '/post', JSON.stringify(kommentti), httpOptions).pipe(
+    return this.http.post<Kommentti>(this.kommentitUrl + '/post', kommentti, httpOptions).pipe(
       tap((kommentti: Kommentti) => this.log(`added kommentti w/ id`)),
       catchError(this.handleError<Kommentti>('addKommentti'))
     );
