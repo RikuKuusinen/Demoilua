@@ -39,7 +39,7 @@ export class KommenttiDetailComponent implements OnInit {
   }
 
   save(): void {
-    this.kommentitService.updateKommentti(this.kommentti)
+    this.kommentitService.updateKommentti(this.kommentti[0])
       .subscribe(() => this.goBack());
   }
 }
