@@ -26,6 +26,9 @@ export class MapComponent {
     this.getSuggestions();
   }
 
+  show: boolean = false;
+
+
   getSuggestions(): void {
     this.suggestionService.getSuggestions()
       .subscribe(markers => this.markers = markers);
@@ -108,7 +111,7 @@ export class MapComponent {
  
 add(label: string, suggestion: string): void {
   if(!label) { return; }
-  this.suggestionService.addSuggestion({ label, suggestion, longitude: this.vittutaulukko[this.vittutaulukko.length - 1].longitude, latitude:this.vittutaulukko[this.vittutaulukko.length-1].latitude, profiili: this.profiili, draggable: false } as Suggestion)
+  this.suggestionService.addSuggestion({ label, suggestion, longitude: this.vittutaulukko[this.vittutaulukko.length - 1].longitude, latitude:this.vittutaulukko[this.vittutaulukko.length-1].latitude, profiili: this.auth.userProfile, draggable: false } as Suggestion)
     .subscribe(suggestion => {
       this.suggestions.push(suggestion);
     });

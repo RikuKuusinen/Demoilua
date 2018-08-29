@@ -3,4 +3,5 @@ export class Kommentti {
   name: string;
   comment: string;
   profiili: any;
+  suggestionId: string;
 }

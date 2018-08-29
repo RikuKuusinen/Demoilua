@@ -17,7 +17,7 @@
     <agm-info-window [isOpen]="true" [disableAutoPan]="true" #infoWindow>
 
       <a href="/lisatiedot/{{m.id}}"> <strong> {{m.label }} </strong> </a> <br />
-      <strong> Tykkäykset: 5 </strong>  <br />
+      <strong> Tykkäykset: {{m.likes}} </strong>  <br />
       <strong> Kommentit: 3</strong>
     </agm-info-window>
 
@@ -31,7 +31,9 @@
               (dragEnd)="markerDragEnd(m, $event)">
     <agm-info-window [isOpen]="true" [disableAutoPan]="true"
                      #infoWindow>
-      <strong >  Paina lisätäksesi uusi ehdotus {{p.label }} </strong>
+      <div (click)="show = !show">
+        <strong>  Paina lisätäksesi uusi ehdotus {{p.label }} </strong>
+      </div>
     </agm-info-window>
   </agm-marker>
 
@@ -45,7 +47,7 @@
 </agm-map>
 
 <ng-container  *ngIf="auth.isAuthenticated()">
-  <div>
+  <div *ngIf="show">
     <div>
       <label>
 
