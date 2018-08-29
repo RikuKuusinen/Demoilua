@@ -40,7 +40,7 @@ export class SuggestionService {
   }
 
   getSuggestion(id: string): Observable<Suggestion> {
-    const url = `${this.kommentitUrl}/getbycommentid?id="${id}"`;
+    const url = `${this.kommentitUrl}/getbysuggestionid?id="${id}"`;
 
     return this.http.get<Suggestion>(url).pipe(
       tap(_ => this.log(`fetched suggestion id=${id}`)),

@@ -19,6 +19,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { SuggestionAddComponent } from './suggestion-add/suggestion-add.component';
+import { SuggestionDetailsComponent } from './suggestion-details/suggestion-details.component'
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: KommenttiDetailComponent },
   { path: 'ehdotukset', component: EhdotusComponent },
   { path: 'counter', component: CounterComponent },
+  { path: 'lisatiedot/:id', component: SuggestionDetailsComponent },
   { path: 'fetch-data', component: FetchDataComponent },
   { path: 'callback', component: CallbackComponent },
   { path: 'lisaa-ehdotus', component: SuggestionAddComponent },

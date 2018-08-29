@@ -1,0 +1,20 @@
+<div *ngIf="suggestion">
+  <h2> Lisätietoja ehdotuksesta</h2>
+  <div><span>Nimimerkki: </span>{{suggestion.label}}</div>
+  <div>
+    <span>
+      Ehdotus:
+    </span>
+    {{suggestion.id }} <br />
+    <!--{{suggestion.profiili.nickname | json }}-->
+    Sijainti: Keilaranta 5
+  </div>
+
+  Tarkempi kuvaus: Kikkelis kokkelis lorem ipsum kakkeli vitusti tekstiä<br />
+  <button>Kommenttoi tätä paskaa ehdotusta</button>
+  <br />
+  Tämä on ihan paras ehdotus eli annan tälle peukkua painamalla tästä <button>Peukalon kuva</button>
+
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>

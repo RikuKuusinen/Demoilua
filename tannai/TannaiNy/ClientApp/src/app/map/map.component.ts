@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MouseEvent } from '@agm/core';
 import { SuggestionService } from '../suggestion.service';
 import { Suggestion } from '../suggestion';
+import { AuthService } from '../auth/auth.service';
+
 
 @Component({
   selector: 'app-map',
@@ -15,7 +17,10 @@ export class MapComponent {
   profiili: any;
   vittutaulukko = [];
 
-  constructor(private suggestionService: SuggestionService) { }
+
+  constructor(private suggestionService: SuggestionService, public auth: AuthService) {
+    auth.handleAuthentication();
+  }
 
   ngOnInit() {
     this.getSuggestions();
@@ -52,10 +57,28 @@ export class MapComponent {
    });
   }
 
-  //markerDragEnd(m: marker, $event: MouseEvent) {
-  //  console.log('dragEnd', m, $event);
-  //}
+  markerDragEnd(m: marker, $event: MouseEvent) {
+    console.log('dragEnd', m, $event);
+  }
 
+  mapLicked($event: MouseEvent) {
+    this.parkers.push({
+      latitude: $event.coords.lat,
+      longitude: $event.coords.lng,
+      label: "Tänne uusi ehdotus",
+      draggable: true
+    });
+  }
+ 
+
+  parkers: marker[] = [
+    {
+        latitude: 60.159081131728556,
+        longitude: 24.722763515543306,
+        label: 'Tänne thai-hieronta',
+        draggable: false
+  },
+  ]
 
   //  markers: Suggestion[] = [
 
@@ -81,13 +104,8 @@ export class MapComponent {
   //  ]
   ////}
 
-  //// just an interface for type safety.
-  //interface marker {
-  //  lat: number;
-  //  lng: number;
-  //  label?: string;
-  //  draggable: boolean;
-  //}
+  // just an interface for type safety.
+ 
 add(label: string, suggestion: string): void {
   if(!label) { return; }
   this.suggestionService.addSuggestion({ label, suggestion, longitude: this.vittutaulukko[this.vittutaulukko.length - 1].longitude, latitude:this.vittutaulukko[this.vittutaulukko.length-1].latitude, profiili: this.profiili, draggable: false } as Suggestion)
@@ -96,6 +114,11 @@ add(label: string, suggestion: string): void {
     });
 }
   }
-
+interface marker {
+  latitude: number;
+  longitude: number;
+  label?: string;
+  draggable: boolean;
+}
 
 

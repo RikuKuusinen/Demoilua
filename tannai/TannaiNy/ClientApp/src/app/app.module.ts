@@ -36,6 +36,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { EhdotusSearchComponent } from './ehdotus-search/ehdotus-search.component';
 import { SuggestionAddComponent } from './suggestion-add/suggestion-add.component';
+import { EhdotusLisatiedotComponent } from './ehdotus-lisatiedot/ehdotus-lisatiedot.component';
+import { SuggestionDetailsComponent } from './suggestion-details/suggestion-details.component';
 
 
 
@@ -60,6 +62,8 @@ import { SuggestionAddComponent } from './suggestion-add/suggestion-add.componen
     MessagesComponent,
     EhdotusSearchComponent,
     SuggestionAddComponent,
+    EhdotusLisatiedotComponent,
+    SuggestionDetailsComponent,
 
   ],
   imports: [
