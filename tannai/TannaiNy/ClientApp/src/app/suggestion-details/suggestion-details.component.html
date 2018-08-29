@@ -1,3 +1,32 @@
+
+<head>
+  <title>TännenäiNy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+
+    body, h1, h2, h3, h4, h5, h6 {
+      color: #344055;
+      font-family: "Lato", sans-serif
+    }
+
+    .w3-bar, h1, button {
+      color: #1691ad;
+      font-family: "Montserrat", sans-serif
+    }
+
+    .fa-anchor, .fa-coffee {
+      font-size: 200px
+    }
+  </style>
+</head>
+
+
+
 <div *ngIf="suggestion">
   <h2> Lisätietoja ehdotuksesta</h2>
   <div><span>Nimimerkki: </span>{{suggestion.label}}</div>
@@ -20,19 +49,19 @@
 </div>
 <!--<div *ngIf="show">-->
 
-  <button (click)="show = !show">Kommentoi tätä mahtavaa ehdotusta</button>
-  <br>
-  <div *ngIf="show">
-    <label>
-      Kommentin name:
-      <input #kommenttiNimi />
-    </label>
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(kommenttiNimi.value, suggestion.id); kommenttiNimi.value=''">
+<button (click)="show = !show">Kommentoi tätä mahtavaa ehdotusta</button>
+<br>
+<div *ngIf="show">
+  <label>
+    Kommentin name:
+    <input #kommenttiNimi />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(kommenttiNimi.value, suggestion.id); kommenttiNimi.value=''">
 
-      add
-    </button>
-  </div>
+    add
+  </button>
+</div>
 
 <div>
   <!--// print all comments that are related to this suggestion-->
@@ -42,3 +71,4 @@
 
 </div>
 <!--</div>-->
+

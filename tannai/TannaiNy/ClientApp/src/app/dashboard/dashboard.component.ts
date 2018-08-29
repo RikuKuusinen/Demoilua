@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Kommentti } from '../kommentti';
 import { KommentitService } from '../kommentti.service';
+import { AuthService } from '../auth/auth.service';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +10,15 @@ import { KommentitService } from '../kommentti.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  constructor(private kommenttiService: KommentitService, auth: AuthService) {
+    auth.handleAuthentication();
+  }
+
+
   kommentit: Kommentti[] = [];
 
-  constructor(private kommenttiService: KommentitService) { }
+
 
   ngOnInit() {
     this.getKommentit();

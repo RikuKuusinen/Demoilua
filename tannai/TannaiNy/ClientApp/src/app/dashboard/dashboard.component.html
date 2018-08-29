@@ -1,12 +1,97 @@
-<h3>Top Ehdotukset</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let kommentti of kommentit" class="col-1-4"
-     routerLink="/detail/{{kommentti.id}}">
-   
-    <div class="module hero">
-      <h4>{{kommentti.comment}}</h4>
-    </div>
-  </a>
-</div>
 
-<app-ehdotus-search></app-ehdotus-search>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TännenäiNy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+
+    body, h1, h2, h3, h4, h5, h6 {
+      color: #344055;
+      font-family: "Lato", sans-serif
+    }
+
+    .w3-bar, h1, button {
+      color: #1691ad;
+      font-family: "Montserrat", sans-serif
+    }
+
+    .fa-anchor, .fa-coffee {
+      font-size: 200px
+    }
+  </style>
+</head>
+
+<body>
+  <app-nav-menu></app-nav-menu>
+ 
+  <!-- First Grid -->
+  <div class="w3-row-padding w3-center w3-padding-64" id="topehdotukset">
+    <h2>Top 3 Ehdotukset</h2>
+    <!--<app-profile *ngIf="auth.isAuthenticated()">TEst</app-profile>-->
+    <p>Katso mitkä ehdotukset ovat muiden käyttäjien mieleen.</p><br>
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme">
+          <p class="w3-xlarge">Basic</p>
+        </li>
+        <li class="w3-padding-16"><b>10GB</b> Storage</li>
+        <li class="w3-padding-16"><b>10</b> Emails</li>
+        <li class="w3-padding-16"><b>10</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide"><i class="fa fa-usd"></i> 10</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-theme-l5 w3-padding-24">
+          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme-l2">
+          <p class="w3-xlarge">Pro</p>
+        </li>
+        <li class="w3-padding-16"><b>25GB</b> Storage</li>
+        <li class="w3-padding-16"><b>25</b> Emails</li>
+        <li class="w3-padding-16"><b>25</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide"><i class="fa fa-usd"></i> 25</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-theme-l5 w3-padding-24">
+          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme">
+          <p class="w3-xlarge">Premium</p>
+        </li>
+        <li class="w3-padding-16"><b>50GB</b> Storage</li>
+        <li class="w3-padding-16"><b>50</b> Emails</li>
+        <li class="w3-padding-16"><b>50</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide"><i class="fa fa-usd"></i> 50</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-theme-l5 w3-padding-24">
+          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <app-map></app-map>
+</body>
+</html>
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity"></footer>

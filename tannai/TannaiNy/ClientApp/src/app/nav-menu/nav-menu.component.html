@@ -1,33 +1,68 @@
-<div class='main-nav'>
-    <div class='navbar navbar-inverse'>
-        <div class='navbar-header'>
-            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
-                <span class='sr-only'>Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-            </button>
-            <a class='navbar-brand' [routerLink]='["/"]'>TannaiNy</a>
-        </div>
-        <div class='clearfix'></div>
-        <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
-            <ul class='nav navbar-nav'>
-                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]='["/"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-home'></span> Home
-                    </a>
-                </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/counter"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-education'></span> Counter
-                    </a>
-                </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/app"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-th-list'></span> Kirjautuminen
-                    </a>
-                </li>
-            </ul>
-        </div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TännenäiNy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+
+    body, h1, h2, h3, h4, h5, h6 {
+      color: #344055;
+      font-family: "Lato", sans-serif
+    }
+
+    .w3-bar, h1, button {
+      color: #1691ad;
+      font-family: "Montserrat", sans-serif
+    }
+
+    .fa-anchor, .fa-coffee {
+      font-size: 200px
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="w3-top" id="navi">
+    <div class="w3-bar w3-border-light-grey w3-card w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-border-light-grey" href="javascript:void();" (click)="myFunction();" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="/dashboard" class="w3-bar-item w3-button w3-padding-large w3-white"><img src="http://i68.tinypic.com/8weiy1.jpg" alt="TännäiNy-Logo" style="width:240px; height:75px">  </a>
+      <a href="/dashboard" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Etusivu</a>
+      <a href="/profiili" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Profiili</a>
+      <a href="/ehdotukset" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Ehdotukset</a>
+      <a href="/ehdotus" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Lisää ehdotus</a>
+      <button id="qsLoginBtn" class="btn btn-primary my-2 my-sm-0" *ngIf="!auth.isAuthenticated()" (click)="auth.login()" type="button">
+        Log In
+      </button>
+      <button id="qsLogoutBtn" class="btn btn-primary my-2 my-sm-0" *ngIf="auth.isAuthenticated()" (click)="auth.logout()" type="button">
+        Log Out
+      </button>
+      <button class="btn btn-primary btn-margin" *ngIf="auth.isAuthenticated() && auth.userHasScopes(['write:messages'])" routerLink="/admin">
+        Admin Area
+      </button>
     </div>
-</div>
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-border-light-grey w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="/dashboard" class="w3-bar-item w3-button w3-padding-large">Etusivu</a>
+      <a href="/profiili" class="w3-bar-item w3-button w3-padding-large">Profiili</a>
+      <a href="/ehdotukset" class="w3-bar-item w3-button w3-padding-large">Ehdotukset</a>
+      <a href="/ehdotus" class="w3-bar-item w3-button w3-padding-large">Lisää ehdotus</a>
+    </div>
+  </div>
+  <footer></footer>
+  <script>
+  // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }</script>
+</body>
+</html>
