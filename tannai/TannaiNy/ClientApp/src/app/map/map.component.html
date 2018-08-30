@@ -52,7 +52,8 @@
 
     </agm-marker>
 
-    <agm-marker *ngFor="let p of parkers; let i = index"
+    <agm-marker [iconUrl]="'http://i63.tinypic.com/11v1obl.jpg'"
+                *ngFor="let p of parkers; let i = index"
                 (markerClick)="clickedMarker(p.label, i)"
                 [latitude]="p.latitude"
                 [longitude]="p.longitude"
