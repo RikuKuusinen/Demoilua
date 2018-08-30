@@ -14,7 +14,7 @@
       font-family: "Lato", sans-serif
     }
 
-    div {
+    div, ul, li {
       color: #344055;
       font-family: "Lato", sans-serif;
       font-size: 18px;
@@ -56,9 +56,9 @@
 
 </div>
   <!--<div *ngIf="show">-->
-  <button id="btnlike"><img src="http://i63.tinypic.com/vpb8e1.png" z-index="5" border="0" alt="Sydän" style="width:25px; height:25px" *ngIf="auth.isAuthenticated()" (click)="updateLikes();"/></button>
+  <button id="btnlike"><img src="http://i63.tinypic.com/vpb8e1.png" z-index="5" border="0" alt="Sydän" style="width:50px; height:50px" *ngIf="auth.isAuthenticated()" (click)="updateLikes();"/></button>
 
- 
+ <br/> <br/>
 
   <button id="btn" class="btn btn-primary my-2 my-sm-0"
           (click)="goBack()">
@@ -74,10 +74,8 @@
   <br>
 
   <div *ngIf="show">
-    <label>
-      Kommenttisi:
-      <input #kommenttiNimi />
-    </label>
+      <textarea #kommenttiNimi cols="30" rows="6" maxlength="160" placeholder="Kirjoita kommentti"></textarea>
+ 
     <!-- (click) passes input value to add() and then clears the input -->
     <button id="btn" class="btn btn-primary my-2 my-sm-0"
             (click)="add(kommenttiNimi.value, suggestion.id); kommenttiNimi.value=''">
@@ -86,8 +84,8 @@
     </button>
   </div>
 
-  <ul>
-    <li *ngFor="let kommentti of kommentit" style="max-width:50px">
+  <!--<ul>
+    <li id="list" *ngFor="let kommentti of kommentit" style="max-width:200px">
       {{kommentti.comment}}
       <br />
       Kommentoija:
@@ -97,9 +95,27 @@
       <!--x
       </button>-->
 
-    </li>
-  </ul>
-  <p></p>
+    <div class="w3-row-padding w3-center w3-padding-64" id="topehdotukset">
+      <h2>Muitten mielipiteet ehdotuksesta</h2>
+      <!--<app-profile *ngIf="auth.isAuthenticated()">TEst</app-profile>-->
+      <!--<p>Katso mitkä ehdotukset ovat muiden käyttäjien mieleen.</p><br>-->
+      <div *ngFor='let r of kommentit' class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-hover-shadow">
+          <li class="w3-theme">
+            <p class="w3-xlarge"><b>{{r.comment}}</b> </p>
+          </li>
+          <!--<li class="w3-padding-16"><b>Tykkäykset </b>{{s.likes}}</li>-->
+          <li class="w3-padding-16">Kommentoinut: {{r.profiili.nickName}}</li>
+          <!--<li class="w3-padding-16"><b>Tarkempi kuvaus ehdotuksesta: </b> <br /></li>
+          <li class="w3-padding-16">{{s.suggestion}}</li>-->
+
+          <!--<li class="w3-theme-l5 w3-padding-24">
+            <a routerLink="/lisatiedot/{{s.id}}"> Tarkemmat tiedot </a>-->
+            <!--<button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i>Lisätiedot  </button></a>-->
+          <!--</li>-->
+        </ul>
+      </div>
+    </div>
 
 
 

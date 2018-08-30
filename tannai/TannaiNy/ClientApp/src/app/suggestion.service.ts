@@ -90,7 +90,9 @@ export class SuggestionService {
   /** DELETE: delete the comment from the server */
   deleteSuggestion(suggestion: Suggestion | number): Observable<Suggestion> {
     const id = typeof suggestion === 'number' ? suggestion : suggestion.id;
-    const url = `${this.kommentitUrl}/${id}`;
+    const url = `${this.kommentitUrl}/delete?id=${id}`;
+
+    //const url = `${this.kommentitUrl}/${id}`;
 
     return this.http.delete<Suggestion>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted suggestion id=${id}`)),

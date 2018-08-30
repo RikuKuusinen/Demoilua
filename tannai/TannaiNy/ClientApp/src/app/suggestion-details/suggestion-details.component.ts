@@ -10,7 +10,6 @@ import { Kommentti } from '../kommentti';
 import { KommentitService } from '../kommentti.service'
 import { AuthService } from '../auth/auth.service';
 import { ProfileComponent } from '../profile/profile.component';
-import { Promise } from 'q';
 
 @Component({
   selector: 'app-suggestion-details',

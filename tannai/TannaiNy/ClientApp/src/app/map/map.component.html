@@ -64,7 +64,7 @@
       <agm-info-window [isOpen]="true" [disableAutoPan]="true"
                        #infoWindow>
         <div (click)="show = !show">
-          <strong>  Paina lisätäksesi uusi ehdotus {{p.label }} </strong>
+         <strong style="color: #1691ad; cursor: pointer;"> Lisää uusi ehdotus </strong>
         </div>
       </agm-info-window>
     </agm-marker>
@@ -79,11 +79,11 @@
   </agm-map>
 </div>
 <ng-container *ngIf="auth.isAuthenticated()">
-  <div *ngIf="show">
+  <div id="ehdotus" *ngIf="show">
     <div>
       <label>
-
-        <input #ehdotuksetNimi placeholder=" Ehdotuksesi otsikko" />
+        <br /> <br />
+        <input id="ehdotus2" #ehdotuksetNimi placeholder=" Ehdotuksesi otsikko" />
       </label>
     </div>
     <label>
@@ -93,9 +93,9 @@
     </label>
     <!-- (click) passes input value to add() and then clears the input -->
     <div>
-      <button (click)="add(ehdotuksetNimi.value, ehdotuksetKuvaus.value); ehdotuksetNimi.value=''; ehdotuksetKuvaus.value='';">
+      <button id="btn" class="btn btn-primary my-2 my-sm-0" (click)="add(ehdotuksetNimi.value, ehdotuksetKuvaus.value); ehdotuksetNimi.value=''; ehdotuksetKuvaus.value='';">
 
-        Lisää vittu hieno ideasi tänne!!!
+       Lisää ideasi!
       </button>
     </div>
   </div>

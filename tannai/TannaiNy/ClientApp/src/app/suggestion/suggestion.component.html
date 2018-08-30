@@ -1,82 +1,18 @@
-<head>
-  <title>TännenäiNy</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-
-
-
-    body, h1, h2, h3, h4, h5, h6 {
-      color: #344055;
-      font-family: "Lato", sans-serif
-    }
-
-    div {
-      color: #344055;
-      font-family: "Lato", sans-serif;
-      font-size: 18px;
-    }
-
-    .w3-bar, h1, button {
-      color: #1691ad;
-      font-family: "Montserrat", sans-serif
-    }
-
-    .fa-anchor, .fa-coffee {
-      font-size: 200px
-    }
-  </style>
-</head>
 <div class="w3-row-padding w3-center w3-padding-64" id="topehdotukset">
 
-  <div>
-    <label>
-      Kommentin name:
-      <input id="textbox" #kommenttiNimi />
-    </label>
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button id="btn" class="btn btn-primary my-2 my-sm-0" (click)="add(kommenttiNimi.value); kommenttiNimi.value=''">
-      add
-    </button>
-  </div>
-  <ul class="heroes">
-    <li *ngFor="let kommentti of kommentit">
-      <a routerLink="/detail/{{kommentti.id}}">
-        <span class="badge">{{kommentti.comment}}</span> {{kommentti.name}} {{kommentti.profiili}}
-      </a>
-      <button class="delete" title="delete kommentti"
-              (click)="delete(kommentti)">
-        x
-      </button>
-    </li>
-  </ul>
+  <div *ngFor='let s of suggestions' class="w3-third w3-margin-bottom">
+    <ul class="w3-ul w3-border w3-hover-shadow">
+      <li class="w3-theme">
+        <p class="w3-xlarge">{{s.label}}</p>
+      </li>
+      <li class="w3-padding-16"><b>Tykkäykset </b>{{s.likes}}</li>
+      <li class="w3-padding-16"><b>Käyttäjätunnus </b>{{s.profiili.nickName}}</li>
+      <li class="w3-padding-16"><b>Tarkempi kuvaus ehdotuksesta: </b> <br /></li>
+      <li class="w3-padding-16">{{s.suggestion}}</li>
 
-  Tarkempi kuvaus: Kikkelis
-  kokkelis lorem ipsum kakkeli vitusti tekstiä<br />
-  <button id="btn" class="btn btn-primary my-2 my-sm-0" (click)="comment()">Kommenttoi tätä paskaa ehdotusta</button>
-  <br />
-  Tämä on ihan paras ehdotus eli annan tälle peukkua painamalla tästä <button id="btnlike"><img src="http://i63.tinypic.com/vpb8e1.png" z-index="5" border="0" alt="Sydän" style="width:25px; height:25px" /></button>
-  <button id="btn" class="btn btn-primary my-2 my-sm-0" (click)="goBack()">go back</button>
-  <button id="btn" class="btn btn-primary my-2 my-sm-0" (click)="save()">save</button>
-</div>
-<!--<div *ngIf="show">-->
-<button id="btn" class="btn btn-primary my-2 my-sm-0" (click)="show = !show">Kommentoi tätä mahtavaa ehdotusta</button>
-<br>
-<div *ngIf="show">
-  <label>
-    Kommentin name:
-    <input id="textbox" #kommenttiNimi />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button id="btn" class="btn btn-primary my-2 my-sm-0" (click)="add(kommenttiNimi.value, suggestion.id); kommenttiNimi.value=''">
-    add
-  </button>
-</div>
-<div>
-  <!--// print all comments that are related to this suggestion-->
-</div>
-<!--</div>-->
+      <li class="w3-theme-l5 w3-padding-24">
+        <a routerLink="/lisatiedot/{{s.id}}"> Tarkemmat tiedot </a>
+    </ul>
+
+  </div>
+  </div>

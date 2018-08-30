@@ -20,13 +20,14 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { SuggestionAddComponent } from './suggestion-add/suggestion-add.component';
 import { SuggestionDetailsComponent } from './suggestion-details/suggestion-details.component'
+import { SuggestionComponent } from './suggestion/suggestion.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: KommenttiDetailComponent },
-  { path: 'ehdotukset', component: EhdotusComponent },
+  { path: 'ehdotukset', component: SuggestionComponent },
   { path: 'counter', component: CounterComponent },
   { path: 'lisatiedot/:id', component: SuggestionDetailsComponent },
   { path: 'fetch-data', component: FetchDataComponent },

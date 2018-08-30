@@ -19,30 +19,31 @@ import { SuggestionDetailsComponent } from '../suggestion-details/suggestion-det
 })
 export class SuggestionComponent implements OnInit {
 
+  suggestions: Suggestion[] = [];
   profiilis: ProfileComponent[];
   kommentit: Kommentti[];
   profiili: any;
 
-  @Input() suggestion: Suggestion[];
+  //@Input() suggestion: Suggestion[];
   constructor(
     private route: ActivatedRoute,
     private suggestionService: SuggestionService,
     private location: Location,
     private kommentitService: KommentitService,
     private auth: AuthService
-  ) { }
-  @Input() totalLikes = 0;
-  @Input() iLike = false;
-  @Output() change = new EventEmitter();
+  ) { auth.handleAuthentication()  }
+  //@Input() totalLikes = 0;
+  //@Input() iLike = false;
+  //@Output() change = new EventEmitter();
 
 
   show: boolean = false;
 
 
   ngOnInit(): void {
-    this.getSuggestion();
+    this.getSuggestions();
 
-    this.getKommentit();
+    //this.getKommentit();
 
     if (this.auth.userProfile) {
       this.profiili = this.auth.userProfile;
@@ -53,27 +54,32 @@ export class SuggestionComponent implements OnInit {
     }
   }
 
+  getSuggestions(): void {
+    this.suggestionService.getSuggestions()
+      .subscribe(suggestions => this.suggestions = suggestions);
+  }
+
   comment() {
 
 
   }
 
-  getSuggestion(): void {
-    let id = this.route.snapshot.paramMap.get('id');
+  //getSuggestion(): void {
+  //  let id = this.route.snapshot.paramMap.get('id');
 
-    this.suggestionService.getSuggestion(id)
-      .subscribe(suggestion => this.suggestion = suggestion[0]);
-    console.log(this.suggestion[0])
-  }
+  //  this.suggestionService.getSuggestion(id)
+  //    .subscribe(suggestion => this.suggestion = suggestion[0]);
+  //  console.log(this.suggestion[0])
+  //}
 
   goBack(): void {
     this.location.back();
   }
 
-  save(): void {
-    this.suggestionService.updateSuggestion(this.suggestion[0])
-      .subscribe(() => this.goBack());
-  }
+  //save(): void {
+  //  this.suggestionService.updateSuggestion(this.suggestion[0])
+  //    .subscribe(() => this.goBack());
+  //}
 
 
   getKommentit(): void {

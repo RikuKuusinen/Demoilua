@@ -50,7 +50,21 @@ html {
   padding-left: 5%;
   padding-right: 5%;
 }
-
+#ehdotus {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+#ehdotus2 {
+  width: 263px;
+  background-color: white;
+  cursor: pointer;
+  border-color: ButtonHighlight;
+  border-style: groove;
+  border-width: 1px;
+}
+#list {
+  
+}
 
 
 #navi {

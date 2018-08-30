@@ -76,9 +76,9 @@ export class MapComponent {
 
   parkers: marker[] = [
     {
-        latitude: 60.159081131728556,
+        latitude: -30.159081131728556,
         longitude: 2.722763515543306,
-        label: 'Tänne thai-hieronta',
+        label: '',
         draggable: false
   },
   ]
