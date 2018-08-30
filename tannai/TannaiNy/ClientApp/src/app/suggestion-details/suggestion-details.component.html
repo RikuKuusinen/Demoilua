@@ -28,47 +28,59 @@
 
 
 <div *ngIf="suggestion">
-  <h2> Lisätietoja ehdotuksesta</h2>
-  <div><span>Nimimerkki: </span>{{suggestion.label}}</div>
-  <div>
-    <span>
-      Ehdotus:
-    </span>
-    {{suggestion.suggestion }} <br />
-    <!--{{suggestion.profiili.nickname}}-->
-    Sijainti: Keilaranta 5
-  </div>
+    <h2> Lisätietoja ehdotuksesta</h2>
+    <div><span>Nimimerkki: </span>{{suggestion.label}}</div>
+    <div>
+        <span>
+            Ehdotus:
+        </span>
+        {{suggestion.suggestion }} <br />
+        <!--{{suggestion.profiili.nickname}}-->
+        Sijainti: Keilaranta 5
+    </div>
 
-  Tarkempi kuvaus: Kikkelis kokkelis lorem ipsum kakkeli vitusti tekstiä<br />
-  <button (click)="comment()">Kommenttoi tätä paskaa ehdotusta</button>
-  <br />
-  Tämä on ihan paras ehdotus eli annan tälle peukkua painamalla tästä <button>Peukalon kuva</button>
+    });
+    Tarkempi kuvaus: Kikkelis kokkelis lorem ipsum kakkeli vitusti tekstiä<br />
+    <br />
+    Tämä on ihan paras ehdotus eli annan tälle peukkua painamalla tästä
+    <button type='button' name="likebutton" *ngIf="auth.isAuthenticated()" (click)="updateLikes()">Peukalon kuva</button>
 
-  <button (click)="goBack()">go back</button>
-  <button (click)="save()">save</button>
+    <button (click)="goBack()">Edellinen sivu</button>
+    <!--<button (click)="save()">save</button-->
 </div>
 <!--<div *ngIf="show">-->
 
-<button (click)="show = !show">Kommentoi tätä mahtavaa ehdotusta</button>
+<button *ngIf="auth.isAuthenticated()" (click)="show = !show">Kommentoi tätä mahtavaa ehdotusta</button>
 <br>
-<div *ngIf="show">
-  <label>
-    Kommentin name:
-    <input #kommenttiNimi />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(kommenttiNimi.value, suggestion.id); kommenttiNimi.value=''">
 
-    add
-  </button>
-</div>
+  <div *ngIf="show">
+    <label>
+      Kommentin name:
+      <input #kommenttiNimi />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(kommenttiNimi.value, suggestion.id); kommenttiNimi.value=''">
 
-<div>
-  <!--// print all comments that are related to this suggestion-->
+      Lisää kommentti
+    </button>
+  </div>
+
+  <ul>
+    <li *ngFor="let kommentti of kommentit">
+      {{kommentti.comment}}
+      Kommentoija:
+      {{kommentti.profiili.nickName }}
+      <!--<button class="delete" title="delete kommentti"
+              (click)="delete(kommentti)">-->
+      <!--x
+      </button>-->
+
+    </li>
+  </ul>
+  <p></p>
 
 
 
 
-</div>
-<!--</div>-->
 
+  <!--</div>-->

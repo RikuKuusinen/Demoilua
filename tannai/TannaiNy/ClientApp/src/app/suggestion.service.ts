@@ -41,7 +41,6 @@ export class SuggestionService {
 
   getSuggestion(id: string): Observable<Suggestion> {
     const url = `${this.kommentitUrl}/getbysuggestionid?id="${id}"`;
-
     return this.http.get<Suggestion>(url).pipe(
       tap(_ => this.log(`fetched suggestion id=${id}`)),
       catchError(this.handleError<Suggestion>(`getSuggestion id=${id}`))
@@ -57,7 +56,15 @@ export class SuggestionService {
       catchError(this.handleError<Suggestion[]>('searchSuggestion', []))
     );
   }
+    
+    //getLikesBySuggestionId(SuggestionId: string): Observable<Suggestion> {
+    //    const url = `${this.kommentitUrl}/getBySuggestionId?id="${SuggestionId}"`;
+    //    return this.http.get<Likes>(url).pipe(
+    //        tap(_ => this.log(`fetched Likes id=${SuggestionId}`)),
+    //        catchError(this.handleError<Suggestion>(`getSuggestion id=${SuggestionId}`))
+    //    );
 
+    //}
 
   //////// Save methods //////////
 
@@ -89,6 +96,15 @@ export class SuggestionService {
     );
   }
 
+    /** PUT: update the likes on the server */
+
+  updateLikes(id: string, likes: number): Observable<any> {
+    const url = `${this.kommentitUrl}/UpdateSuggestionLike?id=${id}&Likes=${likes}`;
+    return this.http.put(url, likes, httpOptions).pipe(
+      tap(_ => this.log(`updated suggestion id=${id}`)),
+      catchError(this.handleError<any>('updatedSuggestion'))
+    );
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

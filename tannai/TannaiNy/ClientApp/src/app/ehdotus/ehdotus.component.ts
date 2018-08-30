@@ -24,16 +24,16 @@ export class EhdotusComponent implements OnInit {
 
 
   constructor(private kommentitService: KommentitService, private auth : AuthService) { }
- @Input() totalLikes = 0;
-  @Input() iLike = false;
+ //@Input() totalLikes = 0;
+ // @Input() iLike = false;
 
-  @Output() change = new EventEmitter();
+ // @Output() change = new EventEmitter();
 
-  onClick() {
-    this.iLike = !this.iLike;
-    this.totalLikes += this.iLike ? 1 : -1;
-    this.change.emit({ newValue: this.iLike, newTotal: this.totalLikes });
-  }
+ // onClick() {
+ //   this.iLike = !this.iLike;
+ //   this.totalLikes += this.iLike ? 1 : -1;
+ //   this.change.emit({ newValue: this.iLike, newTotal: this.totalLikes });
+ // }
   // tässä tykkäysnapin counteri
 
 

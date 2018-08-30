@@ -69,9 +69,18 @@ export class KommentitService {
       tap(_ => this.log(`found ehdotuksia matching "${term}"`)),
       catchError(this.handleError<Kommentti[]>('searchEhdotus', []))
     );
-  }
+    }
 
+    getCommentsBySuggestionId(SuggestionId: string): Observable<Kommentti[]> {
+      const url = `${this.kommentitUrl}/GetCommentsBySuggestionId?Suggestionid="${SuggestionId}"`;
+      return this.http.get<Kommentti[]>(url).pipe(
+        tap(_ => this.log(`fetched kommentti id=${SuggestionId}`)),
+        catchError(this.handleError<Kommentti[]>(`getKommentti id=${SuggestionId}`))
+      );
 
+    }
+
+    
   //////// Save methods //////////
 
   /** POST: add a new comment to the server */

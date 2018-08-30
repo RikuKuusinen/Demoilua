@@ -24,24 +24,27 @@ export class SuggestionDetailsComponent implements OnInit {
 
   @Input() suggestion: Suggestion[];
   constructor(
+    public auth: AuthService,
     private route: ActivatedRoute,
     private suggestionService: SuggestionService,
     private location: Location,
-    private kommentitService: KommentitService,
-    private auth: AuthService
-  ) { }
-  @Input() totalLikes = 0;
-  @Input() iLike = false;
-  @Output() change = new EventEmitter();
+    private kommentitService: KommentitService
+    
+  ) { auth.handleAuthentication();}
+  //@Input() totalLikes = 0;
+  //@Input() iLike = false;
+  //@Output() change = new EventEmitter();
 
 
   show: boolean = false;
 
 
   ngOnInit(): void {
+    this.getCommentsBySuggestionId();
     this.getSuggestion();
-
-    this.getKommentit();
+   
+    
+   
 
     if (this.auth.userProfile) {
       this.profiili = this.auth.userProfile;
@@ -52,14 +55,31 @@ export class SuggestionDetailsComponent implements OnInit {
     }
   }
 
-  comment() {
-
+  updateLikes(): void {
+    let id = this.route.snapshot.paramMap.get('id');
+    let likes = this.suggestion["likes"] = this.suggestion["likes"] + 1;
+    this.suggestionService.updateLikes(id, likes)
+      .subscribe(suggestion => this.suggestion = suggestion);
+    console.log(this.suggestion)
 
   }
 
+  getKommentit(): void {
+    console.log(this.kommentit)
+    this.kommentitService.getKommentit()
+      .subscribe(kommentit => this.kommentit = kommentit);
+  }
+
+  getCommentsBySuggestionId(): void {
+    let SuggestionId = this.route.snapshot.paramMap.get('id');
+    this.kommentitService.getCommentsBySuggestionId(SuggestionId)
+      .subscribe(kommentit => this.kommentit = kommentit);
+    console.log(this.kommentit)
+
+
+  }
   getSuggestion(): void {
     let id = this.route.snapshot.paramMap.get('id');
-
     this.suggestionService.getSuggestion(id)
       .subscribe(suggestion => this.suggestion = suggestion[0]);
     console.log(this.suggestion[0])
@@ -74,7 +94,22 @@ export class SuggestionDetailsComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
 
+  add(comment: string, suggestionId: string): void {
+    if (!comment) { return; }
+    this.kommentitService.addKommentti({ comment, suggestionId, profiili: this.auth.userProfile } as Kommentti)
+      .subscribe(kommentti => {
+        this.kommentit.push(kommentti);
+      });
+  }
 
+  delete(kommentti: Kommentti): void {
+    this.kommentit = this.kommentit.filter(h => h !== kommentti);
+    this.kommentitService.deleteKommentti(kommentti).subscribe();
+  }
+
+
+
+}
 
 
 
@@ -99,24 +134,5 @@ export class SuggestionDetailsComponent implements OnInit {
 
 
 
-  getKommentit(): void {
-    this.kommentitService.getKommentit()
-      .subscribe(kommentit => this.kommentit = kommentit);
-  }
 
-  add(comment: string, suggestionId: string): void {
-    if (!comment) { return; }
-    this.kommentitService.addKommentti({ comment, suggestionId, profiili: this.auth.userProfile } as Kommentti)
-      .subscribe(kommentti => {
-        this.kommentit.push(kommentti);
-      });
-  }
-
-  delete(kommentti: Kommentti): void {
-    this.kommentit = this.kommentit.filter(h => h !== kommentti);
-    this.kommentitService.deleteKommentti(kommentti).subscribe();
-  }
-
-
-
-}
+ 

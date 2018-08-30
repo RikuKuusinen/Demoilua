@@ -1,6 +1,9 @@
 agm-map {
   height: 500px;
 }
+agm-marker {
+  
+}
 
 @media(max-width: 767px) {
   agm-map {
