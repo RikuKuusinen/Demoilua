@@ -38,6 +38,7 @@ import { EhdotusSearchComponent } from './ehdotus-search/ehdotus-search.componen
 import { SuggestionAddComponent } from './suggestion-add/suggestion-add.component';
 import { EhdotusLisatiedotComponent } from './ehdotus-lisatiedot/ehdotus-lisatiedot.component';
 import { SuggestionDetailsComponent } from './suggestion-details/suggestion-details.component';
+import { SuggestionComponent } from './suggestion/suggestion.component';
 
 
 
@@ -64,6 +65,7 @@ import { SuggestionDetailsComponent } from './suggestion-details/suggestion-deta
     SuggestionAddComponent,
     EhdotusLisatiedotComponent,
     SuggestionDetailsComponent,
+    SuggestionComponent,
 
   ],
   imports: [

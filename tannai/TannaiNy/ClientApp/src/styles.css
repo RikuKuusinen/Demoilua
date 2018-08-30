@@ -10,7 +10,42 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%
 }
+#textbox {
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  border-radius: 5px;
+}
 
+#btn {
+  background-color: white;
+  color: #1691ad;
+  cursor: pointer;
+  border-color: ButtonHighlight;
+  border-style: groove;
+  border-width: 2px;
+}
+
+  #btn:hover {
+    background-color: white;
+    color: #1691ad;
+    font-weight: bold;
+    cursor: pointer;
+    border-color: ButtonHighlight;
+    border-style: groove;
+    border-width: 3px;
+  }
+
+#btnlike {
+  background-color: white;
+  border: none;
+  color: white;
+  font-size: 10px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
 #kartta {
   padding-left: 5%;
   padding-right: 5%;

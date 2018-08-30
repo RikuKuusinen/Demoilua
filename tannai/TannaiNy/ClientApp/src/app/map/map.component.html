@@ -35,7 +35,7 @@
            [styles]="customStyle">
     <!--(mapClick)="mapClicked($event)"-->
 
-    <agm-marker [iconUrl]="'http://i65.tinypic.com/2i9oy76.jpg'"
+    <agm-marker [iconUrl]="icon1"
                 *ngFor="let m of markers; let i = index"
                 (markerClick)="clickedMarker(m.label, i)"
                 [latitude]="m.latitude"
@@ -52,7 +52,7 @@
 
     </agm-marker>
 
-    <agm-marker [iconUrl]="'http://i63.tinypic.com/11v1obl.jpg'"
+    <agm-marker [iconUrl]="icon2"
                 *ngFor="let p of parkers; let i = index"
                 (markerClick)="clickedMarker(p.label, i)"
                 [latitude]="p.latitude"
@@ -70,12 +70,12 @@
     </agm-marker>
 
 
-    <agm-circle [latitude]="latitude + 0.3" [longitude]="longitude"
+    <!--<agm-circle [latitude]="latitude + 0.3" [longitude]="longitude"
                 [radius]="5000"
                 [fillColor]="'red'"
                 [circleDraggable]="true"
                 [editable]="true">
-    </agm-circle>
+    </agm-circle>-->
   </agm-map>
 </div>
 <ng-container *ngIf="auth.isAuthenticated()">
@@ -88,7 +88,7 @@
     </div>
     <label>
 
-      <textarea #ehdotuksetKuvaus cols="30" rows="10" placeholder="Ehdotuksesi tarkempi kuvaus tänne"></textarea>
+      <textarea #ehdotuksetKuvaus cols="30" rows="6" maxlength="160" placeholder="Ehdotuksesi tarkempi kuvaus tänne"></textarea>
       <!--<input #ehdotuksetKuvaus cols="30" rows="10" />-->
     </label>
     <!-- (click) passes input value to add() and then clears the input -->

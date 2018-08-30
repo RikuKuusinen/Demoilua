@@ -10,14 +10,14 @@ import { Kommentti } from '../kommentti';
 import { KommentitService } from '../kommentti.service'
 import { AuthService } from '../auth/auth.service';
 import { ProfileComponent } from '../profile/profile.component';
-import { Promise } from 'q';
+import { SuggestionDetailsComponent } from '../suggestion-details/suggestion-details.component';
 
 @Component({
-  selector: 'app-suggestion-details',
-  templateUrl: './suggestion-details.component.html',
-  styleUrls: ['./suggestion-details.component.css']
+  selector: 'app-suggestion',
+  templateUrl: './suggestion.component.html',
+  styleUrls: ['./suggestion.component.css']
 })
-export class SuggestionDetailsComponent implements OnInit {
+export class SuggestionComponent implements OnInit {
 
   profiilis: ProfileComponent[];
   kommentit: Kommentti[];
@@ -25,28 +25,24 @@ export class SuggestionDetailsComponent implements OnInit {
 
   @Input() suggestion: Suggestion[];
   constructor(
-    public auth: AuthService,
     private route: ActivatedRoute,
     private suggestionService: SuggestionService,
     private location: Location,
     private kommentitService: KommentitService,
-    
-  ) { auth.handleAuthentication();}
-  //@Input() totalLikes = 0;
-  //@Input() iLike = false;
-  //@Output() change = new EventEmitter();
-  @Output()
-  change: EventEmitter<Suggestion>
+    private auth: AuthService
+  ) { }
+  @Input() totalLikes = 0;
+  @Input() iLike = false;
+  @Output() change = new EventEmitter();
+
 
   show: boolean = false;
 
 
   ngOnInit(): void {
-    this.getCommentsBySuggestionId();
     this.getSuggestion();
 
-    
-   
+    this.getKommentit();
 
     if (this.auth.userProfile) {
       this.profiili = this.auth.userProfile;
@@ -57,45 +53,17 @@ export class SuggestionDetailsComponent implements OnInit {
     }
   }
 
-  kikkeli = this.getSuggestion();
-
-  getKommentit(): void {
-    console.log(this.kommentit)
-    this.kommentitService.getKommentit()
-      .subscribe(kommentit => this.kommentit = kommentit);
-  }
-
-
-  getCommentsBySuggestionId(): void {
-    let SuggestionId = this.route.snapshot.paramMap.get('id');
-    this.kommentitService.getCommentsBySuggestionId(SuggestionId)
-      .subscribe(kommentit => this.kommentit = kommentit);
-    console.log(this.kommentit)
+  comment() {
 
 
   }
-   getSuggestion(): void {
+
+  getSuggestion(): void {
     let id = this.route.snapshot.paramMap.get('id');
+
     this.suggestionService.getSuggestion(id)
       .subscribe(suggestion => this.suggestion = suggestion[0]);
-    console.log(this.suggestion)
-  }
-
-  async updateLikes() {
-   let id = this.route.snapshot.paramMap.get('id');
-    let likes = this.suggestion["likes"] = this.suggestion["likes"] + 1;
-     this.suggestionService.updateLikes(id, likes)
-       .subscribe(suggestion => {
-       this.suggestion = suggestion
-         console.log(this.suggestion)
-         this.getSuggestion();
-        
-       }
-       );
-
-   
-   console.log(this.kikkeli)
-   
+    console.log(this.suggestion[0])
   }
 
   goBack(): void {
@@ -107,14 +75,18 @@ export class SuggestionDetailsComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
 
+
+  getKommentit(): void {
+    this.kommentitService.getKommentit()
+      .subscribe(kommentit => this.kommentit = kommentit);
+  }
+
   add(comment: string, suggestionId: string): void {
     if (!comment) { return; }
     this.kommentitService.addKommentti({ comment, suggestionId, profiili: this.auth.userProfile } as Kommentti)
       .subscribe(kommentti => {
         this.kommentit.push(kommentti);
-        this.getCommentsBySuggestionId();
       });
-  
   }
 
   delete(kommentti: Kommentti): void {
@@ -124,13 +96,4 @@ export class SuggestionDetailsComponent implements OnInit {
 
 
 
-}
-
-
-
-function doAsyncTask(cb) {
-  setTimeout(() => {
-    console.log("Async Task Calling Callback");
-    cb();
-  }, 1000);
 }

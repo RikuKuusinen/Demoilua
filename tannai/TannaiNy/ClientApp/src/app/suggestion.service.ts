@@ -39,6 +39,16 @@ export class SuggestionService {
     );
   }
 
+  getTopSuggestions(): Observable<Suggestion[]> {
+
+    console.log("toimii")
+
+    return this.http.get<Suggestion[]>(this.kommentitUrl + '/gettop3').pipe(
+      tap(suggestion => this.log('fetched kommentit')),
+      catchError(this.handleError('getSuggestions', []))
+    );
+  }
+
   getSuggestion(id: string): Observable<Suggestion> {
     const url = `${this.kommentitUrl}/getbysuggestionid?id="${id}"`;
     return this.http.get<Suggestion>(url).pipe(

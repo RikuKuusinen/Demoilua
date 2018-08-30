@@ -2,7 +2,7 @@ agm-map {
   height: 500px;
 }
 agm-marker {
-  
+  height: 50%;
 }
 
 @media(max-width: 767px) {

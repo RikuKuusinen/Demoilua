@@ -77,7 +77,7 @@ export class MapComponent {
   parkers: marker[] = [
     {
         latitude: 60.159081131728556,
-        longitude: 24.722763515543306,
+        longitude: 2.722763515543306,
         label: 'Tänne thai-hieronta',
         draggable: false
   },
@@ -115,7 +115,23 @@ add(label: string, suggestion: string): void {
     .subscribe(suggestion => {
       this.suggestions.push(suggestion);
     });
-}
+  }
+
+  public icon1 = {
+    url: ("http://i65.tinypic.com/2i9oy76.jpg"),
+    scaledSize: {
+      height: 80,
+      width: 80
+    }
+  };
+
+  public icon2 = {
+    url: ("http://i63.tinypic.com/11v1obl.jpg"),
+    scaledSize: {
+      height: 80,
+      width: 80
+    }
+  };
 
 public customStyle =
   [
