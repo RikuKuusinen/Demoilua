@@ -36,11 +36,11 @@ export class MapComponent {
 
 
   // google maps zoom level
-  zoom: number = 8;
+  zoom: number = 15;
 
   // initial center position for the map
-  latitude: number = 60.16143582626223;
-  longitude: number = 24.833985376717465;
+  latitude: number = 60.16483814561235;
+  longitude: number = 24.935092238452853;
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
@@ -113,7 +113,8 @@ add(label: string, suggestion: string): void {
   if(!label) { return; }
   this.suggestionService.addSuggestion({ label, suggestion, longitude: this.vittutaulukko[this.vittutaulukko.length - 1].longitude, latitude:this.vittutaulukko[this.vittutaulukko.length-1].latitude, profiili: this.auth.userProfile, draggable: false } as Suggestion)
     .subscribe(suggestion => {
-      this.suggestions.push(suggestion);
+      this.suggestions.push(suggestion)
+      this.getSuggestions();
     });
   }
 

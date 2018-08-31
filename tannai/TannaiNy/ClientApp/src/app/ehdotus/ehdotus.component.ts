@@ -55,7 +55,7 @@ export class EhdotusComponent implements OnInit {
       .subscribe(kommentit => this.kommentit = kommentit);
   }
 
-  add(name: string, profiili: any ): void {
+  add(name: string): void {
     name = name.trim();
     if (!name) { return; }
     this.kommentitService.addKommentti({ name, profiili: this.profiili } as Kommentti)

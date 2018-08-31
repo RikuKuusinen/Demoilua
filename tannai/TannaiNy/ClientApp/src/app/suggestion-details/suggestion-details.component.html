@@ -55,15 +55,13 @@
   <!--<button (click)="save()">save</button-->
 
 </div>
-  <!--<div *ngIf="show">-->
-  <button id="btnlike"><img src="http://i63.tinypic.com/vpb8e1.png" z-index="5" border="0" alt="Sydän" style="width:50px; height:50px" *ngIf="auth.isAuthenticated()" (click)="updateLikes();"/></button>
+<!--<div *ngIf="show">-->
+<div id="joku2">
+  <button id="btnlike"><img src="http://i63.tinypic.com/vpb8e1.png" z-index="5" border="0" alt="Sydän" style="width:50px; height:50px" *ngIf="auth.isAuthenticated()" (click)="updateLikes();" /></button>
 
- <br/> <br/>
+  <br /> <br />
 
-  <button id="btn" class="btn btn-primary my-2 my-sm-0"
-          (click)="goBack()">
-    Edellinen sivu
-  </button>
+
 
 
 
@@ -71,54 +69,49 @@
           *ngIf="auth.isAuthenticated()" (click)="show = !show">
     Kommentoi tätä mahtavaa ehdotusta
   </button>
-  <br>
+
 
   <div *ngIf="show">
-      <textarea #kommenttiNimi cols="30" rows="6" maxlength="160" placeholder="Kirjoita kommentti"></textarea>
- 
+    <textarea #kommenttiNimi cols="30" rows="6" maxlength="160" placeholder="Kirjoita kommentti"></textarea>
+
     <!-- (click) passes input value to add() and then clears the input -->
     <button id="btn" class="btn btn-primary my-2 my-sm-0"
             (click)="add(kommenttiNimi.value, suggestion.id); kommenttiNimi.value=''">
 
       Lisää kommentti
     </button>
+
   </div>
 
-  <!--<ul>
-    <li id="list" *ngFor="let kommentti of kommentit" style="max-width:200px">
-      {{kommentti.comment}}
-      <br />
-      Kommentoija:
-      {{kommentti.profiili.nickName }}
-      <!--<button class="delete" title="delete kommentti"
-              (click)="delete(kommentti)">-->
-      <!--x
-      </button>-->
+</div>
 
-    <div class="w3-row-padding w3-center w3-padding-64" id="topehdotukset">
-      <h2>Muitten mielipiteet ehdotuksesta</h2>
-      <!--<app-profile *ngIf="auth.isAuthenticated()">TEst</app-profile>-->
-      <!--<p>Katso mitkä ehdotukset ovat muiden käyttäjien mieleen.</p><br>-->
-      <div *ngFor='let r of kommentit' class="w3-third w3-margin-bottom">
-        <ul class="w3-ul w3-border w3-hover-shadow">
-          <li class="w3-theme">
-            <p class="w3-xlarge"><b>{{r.comment}}</b> </p>
-          </li>
-          <!--<li class="w3-padding-16"><b>Tykkäykset </b>{{s.likes}}</li>-->
-          <li class="w3-padding-16">Kommentoinut: {{r.profiili.nickName}}</li>
-          <!--<li class="w3-padding-16"><b>Tarkempi kuvaus ehdotuksesta: </b> <br /></li>
-          <li class="w3-padding-16">{{s.suggestion}}</li>-->
+  <div class="w3-row-padding w3-center w3-padding-64" id="joku">
+    <h2>Muitten mielipiteet ehdotuksesta</h2>
+    <!--<app-profile *ngIf="auth.isAuthenticated()">TEst</app-profile>-->
+    <!--<p>Katso mitkä ehdotukset ovat muiden käyttäjien mieleen.</p><br>-->
+    <div *ngFor='let r of kommentit' class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme">
+          <p class="w3-xlarge"><b>{{r.comment}}</b> </p>
+        </li>
+        <!--<li class="w3-padding-16"><b>Tykkäykset </b>{{s.likes}}</li>-->
+        <li class="w3-padding-16">Kommentoinut: {{r.profiili.nickName}}</li>
 
-          <!--<li class="w3-theme-l5 w3-padding-24">
-            <a routerLink="/lisatiedot/{{s.id}}"> Tarkemmat tiedot </a>-->
-            <!--<button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i>Lisätiedot  </button></a>-->
-          <!--</li>-->
-        </ul>
-      </div>
+        <!--<li class="w3-padding-16"><b>Tarkempi kuvaus ehdotuksesta: </b> <br /></li>
+        <li class="w3-padding-16">{{s.suggestion}}</li>-->
+        <!--<li class="w3-theme-l5 w3-padding-24">
+          <a routerLink="/lisatiedot/{{s.id}}"> Tarkemmat tiedot </a>-->
+        <!--<button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i>Lisätiedot  </button></a>-->
+        <!--</li>-->
+      </ul>
     </div>
+  </div>
 
 
-
+  <button id="btn" class="btn btn-primary my-2 my-sm-0"
+          (click)="goBack()">
+    Edellinen sivu
+  </button>
 
 
   <!--</div>-->

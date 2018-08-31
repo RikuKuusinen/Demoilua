@@ -28,35 +28,36 @@ export class SuggestionAddComponent implements OnInit {
       });
     }
   }
-  
 
 
 
-  add(label: string, suggestion: string): void {
-    if (!label) { return; }
-    this.suggestionService.addSuggestion({label, suggestion, /*longitude, latitude,*/ profiili:this.profiili, draggable: false } as Suggestion)
-      .subscribe(suggestion => {
-        this.suggestions.push(suggestion);
-      });
-  }
 
-  clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`)
-  }
+  //  add(label: string, suggestion: string): void {
+  //    if (!label) { return; }
+  //    this.suggestionService.addSuggestion({label, suggestion, /*longitude, latitude,*/ profiili:this.profiili, draggable: false } as Suggestion)
+  //      .subscribe(suggestion => {
+  //        this.suggestions.push(suggestion);
+  //      });
+  //  }
 
-  //mapClicked($event: MouseEvent) {
-  //  this.markers.push({
-  //    id: "kakkaa",
-  //    label: "hehe",
-  //    latitude: $event.coords.lat,
-  //    longitude: $event.coords.lng,
-  //    draggable: true,
-  //    profiili: 2,
-  //    likes: 2
-  //  });
-  //}
+  //  clickedMarker(label: string, index: number) {
+  //    console.log(`clicked the marker: ${label || index}`)
+  //  }
 
-  //markerDragEnd(m: marker, $event: MouseEvent) {
-  //  console.log('dragEnd', m, $event);
+  //  //mapClicked($event: MouseEvent) {
+  //  //  this.markers.push({
+  //  //    id: "kakkaa",
+  //  //    label: "hehe",
+  //  //    latitude: $event.coords.lat,
+  //  //    longitude: $event.coords.lng,
+  //  //    draggable: true,
+  //  //    profiili: 2,
+  //  //    likes: 2
+  //  //  });
+  //  //}
+
+  //  //markerDragEnd(m: marker, $event: MouseEvent) {
+  //  //  console.log('dragEnd', m, $event);
+  //  //}
   //}
 }

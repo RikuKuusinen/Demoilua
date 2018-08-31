@@ -18,7 +18,7 @@ export class AuthService {
     domain: 'tannainy.eu.auth0.com',
     responseType: 'token id_token',
     audience: 'https://tannainy.eu.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4295',
+    redirectUri: 'http://tannainy.azurewebsites.net/dashboard',
     scope: this.requestedScopes
   });
 
